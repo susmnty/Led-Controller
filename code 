@@ -1,0 +1,43 @@
+#define BLYNK_TEMPLATE_ID "TMPL6XkyBEgcl"
+#define BLYNK_TEMPLATE_NAME "Control Led"
+#define BLYNK_AUTH_TOKEN "U22nio89LLBB3P6u31NSuYOMYT8W_Uhz"
+
+#define BLYNK_PRINT Serial
+#include <ESP8266WiFi.h>  
+#include <BlynkSimpleEsp8266.h>
+
+#define SoundSensor A0  // ESP8266 only has one analog pin
+#define led D4          // GPIO pin for LED (D4 = Built-in LED on NodeMCU)
+
+char auth[] = BLYNK_AUTH_TOKEN;
+char ssid[] = "GITAM-5GHz";  // Enter your Wifi Username
+char pass[] = "Gitam$$123";  // Enter your Wifi password
+
+int SensorData = 0;
+
+void setup() {
+    Serial.begin(115200);
+    Blynk.begin(auth, ssid, pass);  // Connect to Blynk IoT Cloud
+    pinMode(led, OUTPUT); // Set LED pin as OUTPUT
+}
+
+void loop() {
+    Blynk.run(); // Run Blynk process
+
+    SensorData = analogRead(SoundSensor); // Read sound sensor data
+    Serial.println(SensorData);
+    delay(50); // Short delay for stability
+
+    if (SensorData == 743 || SensorData == 724 || SensorData == 746 || SensorData == 721 ||
+        SensorData == 761 || SensorData == 718 || SensorData == 758 || SensorData == 742) {
+        digitalWrite(led, HIGH);  // Turn LED ON
+        Serial.println("Light OFF");
+        Blynk.virtualWrite(V1, "Light OFF");  // Send status to Blynk app (V1)
+    } 
+    else if (SensorData == 721 || SensorData == 761 || SensorData == 718 || 
+             SensorData == 751 || SensorData == 740 || SensorData == 749) {
+        digitalWrite(led, LOW);   // Turn LED OFF
+        Serial.println("Light ON");
+        Blynk.virtualWrite(V1, "Light ON");  // Send status to Blynk app (V1)
+    }
+}

@@ -63,8 +63,8 @@ Visual data representation on Blynk using Virtual Pins
 
 ---
 
-## Image
-[Blynk LED -](https://www.youtube.com/watch?v=7irSQuL24qY)
+## Blynk Led
+![Blynk Led](https://github.com/user-attachments/assets/8297ffd2-9149-4281-9d03-58324f3f2be8)
 
 ---
 # Conclusion

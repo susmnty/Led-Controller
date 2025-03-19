@@ -68,5 +68,19 @@ Visual data representation on Blynk using Virtual Pins
 
 ---
 # Conclusion
-
 This project offers a simple yet effective sound-activated LED control system using IoT. With Blynk integration, users can monitor and manage the system remotely. This project is ideal for learning the basics of IoT, microcontroller interfacing, and sound detection applications.
+
+---
+### Folder Structure
+
+```plaintext
+ESP8266-Sound-Led-Project/
+├── ArduinoCode/
+│   ├── ESP8266_Sound_LED.ino  # Main Arduino code
+│   ├── BlynkCredentials.h     # Optional - Store sensitive info
+│   └── README.md              # Explanation of the code
+├── Images/
+│   └── CircuitDiagram.png     # Circuit connection diagram
+├── README.md                  # Main documentation for GitHub
+└── LICENSE                    # License for your project (e.g., MIT)
+
